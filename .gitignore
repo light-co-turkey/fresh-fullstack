@@ -1,0 +1,42 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# client dependencies
+fresh-react/package-lock.json
+fresh-react/node_modules
+fresh-react/.pnp
+fresh-react/.pnp.js
+# testing
+fresh-react/coveragee
+# production
+fresh-react/build
+# misc
+fresh-react/.DS_Store
+fresh-react/.env
+fresh-react/.env.local
+fresh-react/.env.development.local
+fresh-react/.env.test.local
+fresh-react/.env.production.local
+fresh-react/npm-debug.log*
+fresh-react/yarn-debug.log*
+fresh-react/yarn-error.log*
+
+# backend dependencies
+fresh-backend/package-lock.json
+fresh-backend/node_modules
+fresh-backend/.pnp
+fresh-backend/.pnp.js
+# testing
+fresh-backend/coveragee
+# production
+fresh-backend/build
+# misc
+fresh-backend/.DS_Store
+fresh-backend/config
+fresh-backend/.env
+fresh-backend/.env.local
+fresh-backend/.env.development.local
+fresh-backend/.env.test.local
+fresh-backend/.env.production.local
+fresh-backend/npm-debug.log*
+fresh-backend/yarn-debug.log*
+fresh-backend/yarn-error.log*
