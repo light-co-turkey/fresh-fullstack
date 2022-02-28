@@ -26,6 +26,7 @@ import { getUser } from './actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import PostView from './components/PostView';
 import { getAllUsers, setAllUsers } from './actions/paramActions';
+import { Landing } from './views/Landing';
 
 const appBody = {
   position: "relative",
@@ -79,7 +80,8 @@ const App = () => {
           <CNavbar theme={theme} toggleTheme={themeToggler} location={location} />
           <div style={appBody}>
             <Switch>
-              <Route exact path='/'><Posts /></Route>
+              <Route exact path='/'><Landing /></Route>
+              <Route exact path='/posts'><Posts /></Route>
               <Route exact path="/signup"><SignUp /></Route>
               <Route exact path="/login"><Login /></Route>
               <Route exact path="/forgotpassword"><ForgotPassword /></Route>

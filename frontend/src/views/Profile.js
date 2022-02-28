@@ -27,7 +27,7 @@ export const Profile = e => {
         <div className="jc-c dfc plr-3 pt-2">
             <div className="df ai-c">
                 <TextBtn
-                    className="mla" variant="warning" size="md"
+                    className="mla" variant="warning" size="sm"
                     onClick={(e) => { onLogoutClick(e); history.push("/") }}>
                     Logout</TextBtn>
             </div>

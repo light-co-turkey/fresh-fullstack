@@ -37,13 +37,14 @@ const ViewImage = props => {
 
     const handleOnLoad = () => {
         setIsLoaded(false)
+        let newProps = { field: "pILoaded", prop: true }
 
         let filter = async () => {
-            let result = usersList.filter(x => x._id === createdBy)[0]
-            return result
+            return await Promise.resolve(usersList.filter(x => x._id === createdBy)[0])
         }
         filter().then((x) => {
             if (x.mediaBuffer) {
+                dispatch(setUserProps(newProps))
                 handleSets(x)
                     .then(setIsLoaded(true))
             } else {
@@ -54,7 +55,6 @@ const ViewImage = props => {
                             handleSets(x)
                             setId(x.id)
                             if (checkVar) {
-                                let newProps = { field: "pILoaded", prop: true }
                                 dispatch(setUserProps(newProps))
                             }
                         }

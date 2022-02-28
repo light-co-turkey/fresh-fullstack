@@ -20,9 +20,9 @@ const PostMetaView = props => {
                     :
                     <div className='df ai-c'>
                         <ViewImage isLoaded={isLoaded} createdBy={createdBy} userInfo={userInfo} usageType="userPI" size="sm" />
-                        <p className='dfc ai-c jc-c ml-2'>{userInfo.name} {userInfo.surname}
+                        <span className='dfc ai-c jc-c ml-2'><p>{userInfo.name} {userInfo.surname}</p>
                         <p>{"@" + userInfo.username}</p>
-                        </p>
+                        </span>
                     </div>}
                 <p className='ml-2 f-4'>{mongoDateToHuman(postMeta.createdAt)}</p>
             </div>}

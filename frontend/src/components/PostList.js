@@ -33,7 +33,7 @@ const PostsList = (props) => {
         :
         <div>
           {errorMsg && <p className="errorMsg">{errorMsg}</p>}
-          <div className="dfc jc-c ai-c">
+          <div className="dfc ai-c">
             {post.isLoaded ? (
               post.posts.map((i) => {
                 const id = i._id

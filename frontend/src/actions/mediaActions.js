@@ -30,7 +30,7 @@ export const getMedia = x => dispatch => {
         promise.then(res => {
             let medias = res.data.medias[0]
             if (usageType === "userPI") {
-                nestUserPI({ usersList, medias, createdBy })
+                dispatch(nestUserPI({ usersList, medias, createdBy }))
             }
             return res.data.medias[0]
         })

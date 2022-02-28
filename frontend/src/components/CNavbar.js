@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import { ToggleContainer, NewsBtn, ProfileBtn, PanelBtn, LinkTextBtn, DaoBtn } from "../components/ui/Buttons";
+import { ToggleContainer, NewsBtn, ProfileBtn, PanelBtn, LinkTextBtn, DaoBtn, FarmBtn } from "../components/ui/Buttons";
 
 //styles
-import Logo from '../assets/avatar-finance-logo.png'
+import Logo from '../assets/logo.png'
 import { ReactComponent as MoonIcon } from '../assets/moon_stars.svg';
 import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import './components.scss';
@@ -49,11 +49,15 @@ const CNavbar = props => {
 
   const GuestGreeting = () => (
     <div className="avatar-nav">
-      <a href="#/" className="ml-3">
-        <NewsBtn style={imgStyles} fill={clientLoc === "/" ? "#65A3FF" : "white"} />
-        <p className="f-3 td-n" style={clientLoc === "/" ? { color: "#65A3FF" } : { color: "white" }}>posts</p>
+      <a href="#/" className="">
+        <FarmBtn style={imgStyles} fill={clientLoc === "/" ? "#65A3FF" : "white"} />
+        <p className="f-3 td-n" style={clientLoc === "/" ? { color: "#65A3FF" } : { color: "white" }}>landing</p>
       </a>
-      <span className="df mr-3">
+      <a href="#/posts" className="">
+        <NewsBtn style={imgStyles} fill={clientLoc === "/posts" ? "#65A3FF" : "white"} />
+        <p className="f-3 td-n" style={clientLoc === "/posts" ? { color: "#65A3FF" } : { color: "white" }}>posts</p>
+      </a>
+      <span className="df">
         <LinkTextBtn variant="info" href="#/signup" style={clientLoc === "/signup" ? authToggle : null}
           size="sm" >Sign Up</LinkTextBtn>
         <LinkTextBtn variant="info" href="#/login" style={clientLoc === "/login" ? authToggle : null}
@@ -64,11 +68,15 @@ const CNavbar = props => {
 
   const UserGreeting = () => (
     <div className="avatar-nav">
-      <a href="#/" className="ml-3">
-        <NewsBtn style={imgStyles} fill={clientLoc === "/" ? "#65A3FF" : "white"} />
-        <p className="f-3 td-n" style={clientLoc === "/" ? { color: "#65A3FF" } : { color: "white" }}>posts</p>
+      <a href="#/" className="">
+        <FarmBtn style={imgStyles} fill={clientLoc === "/" ? "#65A3FF" : "white"} />
+        <p className="f-3 td-n" style={clientLoc === "/" ? { color: "#65A3FF" } : { color: "white" }}>landing</p>
       </a>
-      <a href="#/profile" className="mr-3">
+      <a href="#/posts" className="">
+        <NewsBtn style={imgStyles} fill={clientLoc === "/posts" ? "#65A3FF" : "white"} />
+        <p className="f-3 td-n" style={clientLoc === "/posts" ? { color: "#65A3FF" } : { color: "white" }}>posts</p>
+      </a>
+      <a href="#/profile" className="">
         <ProfileBtn style={imgStyles} fill={clientLoc === "/profile" ? "#65A3FF" : "white"} />
         <p className="f-3 td-n" style={clientLoc === "/profile" ? { color: "#65A3FF" } : { color: "white" }}>profile</p>
       </a>
@@ -87,7 +95,7 @@ const CNavbar = props => {
     <div className="nav-div csticky-top">
       <div className="nav-inner-div">
         <a href="/" className="df">
-          {/* <img className="brand" src={Logo} alt="Avatar Logo" /> */}
+          <img className="brand" src={Logo} alt="Logo" />
         </a>
         <Greeting />
         <ToggleContainer lightTheme={isLight} onClick={toggleTheme} >
