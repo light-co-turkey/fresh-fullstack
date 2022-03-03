@@ -53,7 +53,8 @@ router.get("/get_media/:createdBy/:usageType", (req, res) => {
 router.post("/remove_media/:mediaId", (req, res) => {
   const mediaId = req.params.mediaId
   Media.deleteOne({ "_id": mongoose.Types.ObjectId(mediaId) })
-  .then(res => null)
+  .then(() => res.json("Successfully Deleted"))
+  .catch(err => res.json("Failed to Delete, Err: ", err))
 });
 
 function saveImage(media, mediaEncode, mediaType) {

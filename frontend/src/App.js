@@ -25,8 +25,9 @@ import { Profile } from './views/Profile';
 import { getUser } from './actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import PostView from './components/PostView';
-import { getAllUsers, setAllUsers } from './actions/paramActions';
+import { getAllUsers, setAllUsers, setParamIsLoaded } from './actions/paramActions';
 import { Landing } from './views/Landing';
+import { Auth } from './views/Auth';
 
 const appBody = {
   position: "relative",
@@ -66,8 +67,6 @@ const App = () => {
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   useEffect(() => {
-    console.log()
-    if (localStorage.usersList == null) { dispatch(getAllUsers()) } /* else { if (!param.isLoaded) { dispatch(setAllUsers()) } } */
     if (!auth.isAuthenticated) { } else { dispatch(getUser(auth.user.id)) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth.isAuthenticated, param.isLoaded])
@@ -80,10 +79,11 @@ const App = () => {
           <CNavbar theme={theme} toggleTheme={themeToggler} location={location} />
           <div style={appBody}>
             <Switch>
-              <Route exact path='/'><Landing /></Route>
-              <Route exact path='/posts'><Posts /></Route>
+              <Route exact path='/'><Posts isAuthenticated={auth.isAuthenticated} /></Route>
+              <Route exact path='/info'><Landing /></Route>
               <Route exact path="/signup"><SignUp /></Route>
               <Route exact path="/login"><Login /></Route>
+              <Route exact path="/auth"><Auth /></Route>
               <Route exact path="/forgotpassword"><ForgotPassword /></Route>
               <Route path="/reset/:token"><NewPassword /></Route>
               <Route exact path='/profile'><Profile /></Route>
